@@ -114,7 +114,7 @@ class CardActionsService(private val gameRepository: GameRepository) {
     private fun moveFromBattleZoneToGraveyard(player: Player, card: Card, game: Game) {
         player.battleZone.remove(card)
         player.graveyard.add(card)
-        card.onDying(game)
+        card.onDying(game, player)
     }
 
     private fun getOpponent(game: Game): Player? = if (game.hostTurn) game.guest else game.host

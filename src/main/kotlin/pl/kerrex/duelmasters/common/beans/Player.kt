@@ -1,6 +1,7 @@
 package pl.kerrex.duelmasters.common.beans
 
 import pl.kerrex.duelmasters.common.Card
+import java.io.Serializable
 import java.util.*
 
 data class Player(val uuid: String,
@@ -10,7 +11,7 @@ data class Player(val uuid: String,
                   val manaZone: MutableList<Card>,
                   val shields: MutableList<Card?>,
                   val graveyard: MutableList<Card>,
-                  var manaPoints: Int) {
+                  var manaPoints: Int) : Serializable {
     companion object {
         fun newPlayer(deck: List<Card>): Player {
             val uuid = UUID.randomUUID().toString()
